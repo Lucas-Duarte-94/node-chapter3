@@ -1,3 +1,4 @@
+import auth from "@config/auth";
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 import { AppError } from "../../../../errors/AppError";
@@ -21,17 +22,7 @@ export async function ensureAuthenticated(
     const [, token] = authHeader.split(" ");
 
     try {
-        const { sub: user_id } = verify(
-            token,
-            "4f7cb5b24fed2fc955bd5815abba5374"
-        ) as IPayload;
-
-        const usersRepository = new UsersRepository();
-        const user = await usersRepository.findById(user_id);
-
-        if (!user) {
-            throw new AppError("User does not exists!", 401);
-        }
+        const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
 
         request.user = {
             id: user_id,
