@@ -16,11 +16,24 @@ interface IOptions {
 //     });
 // };
 
-export default async function (host = "database_ignite") {
+// export default async function (host = "database_ignite") {
+//     const defaultOptions = await getConnectionOptions();
+//     return await createConnection(
+//         Object.assign(defaultOptions, {
+//             host,
+//             database:
+//                 process.env.NODE_ENV === "test"
+//                     ? "rentx_test"
+//                     : defaultOptions.database,
+//         })
+//     );
+// }
+
+export default async () => {
     const defaultOptions = await getConnectionOptions();
+
     return await createConnection(
         Object.assign(defaultOptions, {
-            host,
             database:
                 process.env.NODE_ENV === "test"
                     ? "rentx_test"
