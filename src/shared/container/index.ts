@@ -10,9 +10,9 @@ import { CarsRepository } from "@modules/cars/infra/typeorm/repositories/CarsRep
 import { ICarImagesRepository } from "@modules/cars/repositories/ICarImagesRepository";
 import { CarImagesRepository } from "@modules/cars/infra/typeorm/repositories/CarImagesRepository";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
-import { RentalsRepository } from "@modules/rentals/infra/typeorm/repositories/rentalsRepository";
 import { IUserTokensRepository } from "../../modules/accounts/repositories/IUserTokensRepository";
 import { UserTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UserTokensRepository";
+import { RentalsRepository } from "@modules/rentals/infra/typeorm/repositories/rentalsrepository";
 
 import "@shared/container/providers";
 
